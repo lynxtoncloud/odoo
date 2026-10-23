@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="maas_product_family_list_view" model="ir.ui.view">
+        <field name="name">maas.product.family.list</field>
+        <field name="model">maas.product.family</field>
+        <field name="arch" type="xml">
+            <list string="MaaS Product Families">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="product_type"/>
+                <field name="active" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="maas_product_family_form_view" model="ir.ui.view">
+        <field name="name">maas.product.family.form</field>
+        <field name="model">maas.product.family</field>
+        <field name="arch" type="xml">
+            <form string="MaaS Product Family">
+                <sheet>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" placeholder="e.g. Model Service (Tokens)"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="product_type"/>
+                        </group>
+                        <group>
+                            <field name="sequence"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <field name="description" placeholder="How products in this family are sold and metered..."/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="maas_product_family_search_view" model="ir.ui.view">
+        <field name="name">maas.product.family.search</field>
+        <field name="model">maas.product.family</field>
+        <field name="arch" type="xml">
+            <search string="MaaS Product Families">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="product_type"/>
+                <filter name="archived" string="Archived" domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="maas_product_family_action" model="ir.actions.act_window">
+        <field name="name">MaaS Product Families</field>
+        <field name="res_model">maas.product.family</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="maas_product_family_search_view"/>
+    </record>
+
+</odoo>

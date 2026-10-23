@@ -23,3 +23,13 @@ from . import (
 )
 
 from . import res_groups
+
+from . import maas_catalog_document
+from . import maas_price_card
+from . import maas_product_family
+from . import maas_rate
+from . import maas_product_template
+from . import maas_sale_order
+from . import maas_sale_order_line
+from . import maas_usage
+from . import maas_mail_compose_message

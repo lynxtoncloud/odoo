@@ -7821,3 +7821,916 @@ msgstr ""
 
 #~ msgid "<i class=\"oi oi-fw\" data-icon=\"schedule\"/> Waiting Payment"
 #~ msgstr "<i class=\"oi oi-fw\" data-icon=\"schedule\"/>等待付款"
+
+#. module: sale
+#. odoo-python
+#: code:addons/sale/models/maas_usage.py:0
+msgid "%(product)s — %(metric)s — %(date)s (%(quantity)s %(unit)s)"
+msgstr ""
+
+#. module: sale
+#. odoo-python
+#: code:addons/sale/models/maas_rate.py:0
+msgid "%(start)s to %(end)s"
+msgstr "%(start)s 至 %(end)s"
+
+#. module: sale
+#. odoo-python
+#: code:addons/sale/models/maas_rate.py:0
+msgid "%(start)s–%(end)s %(timezone)s"
+msgstr "%(timezone)s %(start)s–%(end)s"
+
+#. module: sale
+#. odoo-python
+#: code:addons/sale/models/sale_order_line.py:0
+msgid "A MaaS catalog rate must match the product on a MaaS quotation."
+msgstr "所选 MaaS 刊例费率必须与报价行产品一致。"
+
+#. module: sale
+#. odoo-python
+#: code:addons/sale/models/product_template.py:0
+msgid "A MaaS product family can only be assigned to a MaaS product."
+msgstr "仅可为 MaaS 产品指定 MaaS 产品族。"
+
+#. module: sale
+#. odoo-python
+#: code:addons/sale/models/maas_rate.py:0
+msgid "A time-based rate must have a non-empty time window."
+msgstr ""
+
+#. module: sale
+#: model:ir.model.fields.selection,name:sale.selection__maas_product_family__product_type__api
+#: model:ir.model.fields.selection,name:sale.selection__product_template__maas_product_type__api
+#: model:maas.product.family,name:sale.maas_product_family_api
+msgid "API Service"
+msgstr "API 服务"
+
+#. module: sale
+#: model:ir.model.fields.selection,name:sale.selection__maas_product_rate__metric__api_usage
+#: model:ir.model.fields.selection,name:sale.selection__maas_usage_event__metric__api_usage
+msgid "API Service Usage"
+msgstr "API 服务用量"
+
+#. module: sale
+#. odoo-python
+#: code:addons/sale/models/maas_rate.py:0
+msgid "API service products can only use the API service usage metric."
+msgstr ""
+
+#. module: sale
+#. odoo-python
+#: code:addons/sale/models/maas_usage.py:0
+msgid "API services must use the API service usage metric."
+msgstr ""
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_maas_catalog_document__active
+#: model:ir.model.fields,field_description:sale.field_maas_product_family__active
+#: model:ir.model.fields,field_description:sale.field_maas_product_rate__active
+msgid "Active"
+msgstr ""
+
+#. module: sale
+#. odoo-python
+#: code:addons/sale/models/sale_order.py:0
+msgid ""
+"All products on this order must belong to %(line)s. Mismatched products: "
+"%(products)s"
+msgstr ""
+
+#. module: sale
+#. odoo-python
+#: code:addons/sale/models/sale_order.py:0
+msgid ""
+"All products on this quotation must belong to %(family)s. Mismatched "
+"products: %(products)s"
+msgstr "此报价单中的所有产品都必须属于 %(family)s。以下产品不匹配：%(products)s"
+
+#. module: sale
+#. odoo-python
+#: code:addons/sale/models/maas_rate.py:0
+msgid "Any date"
+msgstr "任意日期"
+
+#. module: sale
+#: model_terms:ir.ui.view,arch_db:sale.maas_product_family_form_view
+#: model_terms:ir.ui.view,arch_db:sale.maas_product_family_search_view
+msgid "Archived"
+msgstr ""
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_maas_usage_event__billed_quantity
+msgid "Billable Quantity"
+msgstr "计费数量"
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_maas_usage_event__billed_unit_name
+msgid "Billable Unit"
+msgstr "计费单位"
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_maas_usage_event__billing_period_quantity
+#: model:ir.model.fields.selection,name:sale.selection__maas_product_rate__tier_basis__billing_period
+msgid "Billing Period Quantity"
+msgstr "计费周期用量"
+
+#. module: sale
+#. odoo-python
+#: code:addons/sale/models/maas_usage.py:0
+msgid "Billing period quantity cannot be negative."
+msgstr ""
+
+#. module: sale
+#: model:ir.model.fields.selection,name:sale.selection__maas_product_rate__metric__cache_read
+#: model:ir.model.fields.selection,name:sale.selection__maas_usage_event__metric__cache_read
+msgid "Cache Read Tokens"
+msgstr "缓存读取 Token"
+
+#. module: sale
+#: model:ir.model.fields.selection,name:sale.selection__maas_product_rate__metric__cache_write
+#: model:ir.model.fields.selection,name:sale.selection__maas_usage_event__metric__cache_write
+msgid "Cache Write Tokens"
+msgstr "缓存写入 Token"
+
+#. module: sale
+#: model_terms:ir.ui.view,arch_db:sale.product_template_form_maas_inherit
+msgid "Catalog Price"
+msgstr "产品刊例价"
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_maas_product_rate__rate
+#: model:ir.model.fields,field_description:sale.field_maas_usage_event__unit_price
+#: model_terms:ir.ui.view,arch_db:sale.product_template_form_maas_inherit
+#: model_terms:ir.ui.view,arch_db:sale.sale_order_form_maas_inherit
+msgid "Catalog Rate"
+msgstr "刊例单价"
+
+#. module: sale
+#. odoo-python
+#: code:addons/sale/models/maas_rate.py:0
+msgid "Catalog rate rules can only be attached to MaaS products."
+msgstr ""
+
+#. module: sale
+#. odoo-python
+#: code:addons/sale/models/product_template.py:0
+msgid ""
+"Catalog rates must match the MaaS product type: Token rates for models and "
+"API rates for API products."
+msgstr "刊例费率必须与 MaaS 产品类型一致：模型服务使用 Token 费率，API 产品使用 API 费率。"
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_maas_product_family__code
+msgid "Code"
+msgstr ""
+
+#. module: sale
+#: model_terms:ir.ui.view,arch_db:sale.maas_usage_event_form_view
+msgid "Create Draft Invoice"
+msgstr ""
+
+#. module: sale
+#: model_terms:ir.ui.view,arch_db:sale.maas_usage_event_list_view
+msgid "Create Draft Invoices"
+msgstr "生成草稿发票"
+
+#. module: sale
+#: model:ir.model.fields,help:sale.field_product_product__maas_product_type
+#: model:ir.model.fields,help:sale.field_product_template__maas_product_type
+msgid ""
+"Derived from the selected product family: model families use Token metrics "
+"and API families use API usage."
+msgstr ""
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_maas_catalog_document__name
+msgid "Document Name"
+msgstr ""
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_maas_catalog_document__date_start
+#: model:ir.model.fields,field_description:sale.field_maas_product_rate__date_start
+msgid "Effective From"
+msgstr "生效日期"
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_maas_catalog_document__date_end
+#: model:ir.model.fields,field_description:sale.field_maas_product_rate__date_end
+msgid "Effective To"
+msgstr "失效日期"
+
+#. module: sale
+#: model:ir.model,name:sale.model_mail_compose_message
+msgid "Email composition wizard"
+msgstr ""
+
+#. module: sale
+#. odoo-python
+#: code:addons/sale/models/maas_rate.py:0
+msgid "Enter a valid time zone."
+msgstr ""
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_maas_catalog_document__filename
+msgid "File Name"
+msgstr ""
+
+#. module: sale
+#: model:ir.model.fields,help:sale.field_maas_product_rate__quantity_divisor
+msgid ""
+"For a rate per million Tokens, set 1,000,000. For a per-request API rate, "
+"set 1."
+msgstr ""
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_maas_product_rate__time_from
+msgid "From"
+msgstr ""
+
+#. module: sale
+#: model_terms:ir.ui.view,arch_db:sale.maas_product_family_form_view
+msgid "How products in this family are sold and metered..."
+msgstr "描述此产品族的销售和计量方式…"
+
+#. module: sale
+#: model:ir.model.fields.selection,name:sale.selection__maas_product_rate__metric__input
+#: model:ir.model.fields.selection,name:sale.selection__maas_usage_event__metric__input
+msgid "Input Tokens"
+msgstr "输入 Token"
+
+#. module: sale
+#: model:ir.model.fields,help:sale.field_maas_product_rate__max_quantity
+msgid "Leave empty for the last/open-ended tier."
+msgstr ""
+
+#. module: sale
+#. odoo-python
+#: code:addons/sale/models/maas_usage.py:0
+msgid "Link a usage event to a MaaS sales order."
+msgstr ""
+
+#. module: sale
+#: model:ir.model.fields,help:sale.field_maas_product_rate__time_from
+#: model:ir.model.fields,help:sale.field_maas_product_rate__time_to
+msgid "Local time in the selected time zone."
+msgstr ""
+
+#. module: sale
+#: model:ir.model,name:sale.model_maas_catalog_document
+msgid "MaaS Manufacturer Catalog Attachment"
+msgstr ""
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_maas_usage_event__product_id
+msgid "MaaS Product"
+msgstr ""
+
+#. module: sale
+#: model:ir.model,name:sale.model_maas_product_rate
+msgid "MaaS Product Catalog Rate"
+msgstr ""
+
+#. module: sale
+#: model:ir.actions.act_window,name:sale.maas_product_family_action
+#: model:ir.ui.menu,name:sale.menu_maas_product_family
+#: model_terms:ir.ui.view,arch_db:sale.maas_product_family_list_view
+#: model_terms:ir.ui.view,arch_db:sale.maas_product_family_search_view
+msgid "MaaS Product Families"
+msgstr "MaaS 产品族"
+
+#. module: sale
+#: model:ir.model,name:sale.model_maas_product_family
+#: model_terms:ir.ui.view,arch_db:sale.maas_product_family_form_view
+msgid "MaaS Product Family"
+msgstr "MaaS 产品族"
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_product_product__maas_product_type
+#: model:ir.model.fields,field_description:sale.field_product_template__maas_product_type
+#: model:ir.model.fields,field_description:sale.field_sale_order__maas_product_type
+#: model_terms:ir.ui.view,arch_db:sale.product_template_search_maas_inherit
+msgid "MaaS Product Type"
+msgstr "MaaS 产品类型"
+
+#. module: sale
+#: model:ir.actions.act_window,name:sale.maas_usage_event_action
+#: model:ir.ui.menu,name:sale.menu_maas_usage_events
+#: model_terms:ir.ui.view,arch_db:sale.maas_usage_event_form_view
+#: model_terms:ir.ui.view,arch_db:sale.maas_usage_event_list_view
+#: model_terms:ir.ui.view,arch_db:sale.maas_usage_event_search_view
+msgid "MaaS Usage"
+msgstr "MaaS 用量"
+
+#. module: sale
+#: model:ir.model,name:sale.model_maas_usage_event
+msgid "MaaS Usage Event"
+msgstr ""
+
+#. module: sale
+#. odoo-python
+#: code:addons/sale/models/maas_usage.py:0
+msgid "MaaS Usage Invoices"
+msgstr "MaaS 用量发票"
+
+#. module: sale
+#. odoo-python
+#: code:addons/sale/models/product_template.py:0
+msgid ""
+"MaaS product type, rates, and manufacturer files can only be set on MaaS "
+"products."
+msgstr ""
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_maas_catalog_document__vendor_name
+msgid "Manufacturer"
+msgstr "厂商"
+
+#. module: sale
+#: model_terms:ir.ui.view,arch_db:sale.product_template_form_maas_inherit
+msgid "Manufacturer Catalog Attachment"
+msgstr "厂商刊例价附件"
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_maas_catalog_document__file_content
+msgid "Manufacturer Catalog File"
+msgstr "厂商刊例价文件"
+
+#. module: sale
+#. odoo-python
+#: code:addons/sale/models/maas_catalog_document.py:0
+msgid "Manufacturer catalog attachments can only be stored on MaaS products."
+msgstr ""
+
+#. module: sale
+#: model_terms:ir.ui.view,arch_db:sale.product_template_form_maas_inherit
+msgid ""
+"Manufacturer price lists are standard pricing references and are "
+"automatically attached when emailing a MaaS quotation."
+msgstr "厂商刊例价用于标准定价参考。发送 MaaS 报价邮件时，系统会自动附上对应文件。"
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_maas_usage_event__matched_rate_id
+msgid "Matched Catalog Rate"
+msgstr ""
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_maas_product_rate__max_quantity
+msgid "Maximum Quantity"
+msgstr "结束用量"
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_maas_product_rate__metric
+#: model:ir.model.fields,field_description:sale.field_maas_usage_event__metric
+#: model_terms:ir.ui.view,arch_db:sale.maas_usage_event_search_view
+msgid "Metric"
+msgstr ""
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_maas_product_rate__min_quantity
+msgid "Minimum Quantity"
+msgstr "起始用量"
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_product_product__maas_provider
+#: model:ir.model.fields,field_description:sale.field_product_template__maas_provider
+msgid "Model Provider"
+msgstr "模型厂商"
+
+#. module: sale
+#: model:ir.model.fields.selection,name:sale.selection__maas_product_family__product_type__model
+#: model:ir.model.fields.selection,name:sale.selection__product_template__maas_product_type__model
+#: model:maas.product.family,name:sale.maas_product_family_tokens
+msgid "Model Service (Tokens)"
+msgstr "模型服务（Tokens）"
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_product_product__maas_model_version
+#: model:ir.model.fields,field_description:sale.field_product_template__maas_model_version
+msgid "Model Version"
+msgstr "模型版本"
+
+#. module: sale
+#. odoo-python
+#: code:addons/sale/models/maas_rate.py:0
+msgid "Model products need a Token metric, not an API usage metric."
+msgstr ""
+
+#. module: sale
+#. odoo-python
+#: code:addons/sale/models/maas_usage.py:0
+msgid "Model service usage must use a Token metric."
+msgstr ""
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_maas_product_family__name
+#: model:ir.model.fields,field_description:sale.field_maas_product_rate__name
+msgid "Name"
+msgstr ""
+
+#. module: sale
+#. odoo-python
+#: code:addons/sale/models/maas_usage.py:0
+msgid "No active product rate matches this metric, time, and quantity."
+msgstr "没有找到匹配此用量类型、时段和用量的有效产品费率。"
+
+#. module: sale
+#. odoo-python
+#: code:addons/sale/models/maas_rate.py:0
+msgid "Open ended"
+msgstr "长期有效"
+
+#. module: sale
+#: model:ir.model.fields.selection,name:sale.selection__maas_product_rate__metric__output
+#: model:ir.model.fields.selection,name:sale.selection__maas_usage_event__metric__output
+msgid "Output Tokens"
+msgstr "输出 Token"
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_maas_usage_event__pricing_error
+msgid "Pricing Error"
+msgstr ""
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_product_product__maas_product_family_id
+#: model:ir.model.fields,field_description:sale.field_product_template__maas_product_family_id
+#: model:ir.model.fields,field_description:sale.field_sale_order__maas_product_family_id
+#: model_terms:ir.ui.view,arch_db:sale.product_template_search_maas_inherit
+msgid "Product Family"
+msgstr "产品族"
+
+#. module: sale
+#: model:ir.model.fields,help:sale.field_maas_product_rate__rate
+msgid "Published selling rate for this usage metric and condition."
+msgstr ""
+
+#. module: sale
+#: model:ir.model.fields,help:sale.field_maas_product_rate__unit_name
+msgid ""
+"Quantity unit used by this catalog rate, such as per million Tokens or per "
+"request."
+msgstr ""
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_maas_product_rate__unit_name
+msgid "Rate Unit"
+msgstr "计价单位"
+
+#. module: sale
+#: model_terms:ir.ui.view,arch_db:sale.maas_usage_event_form_view
+#: model_terms:ir.ui.view,arch_db:sale.maas_usage_event_list_view
+msgid "Rate Usage"
+msgstr "计算用量费用"
+
+#. module: sale
+#. odoo-python
+#: code:addons/sale/models/maas_usage.py:0
+msgid "Rate the selected usage events before creating invoices."
+msgstr ""
+
+#. module: sale
+#: model:ir.model.fields.selection,name:sale.selection__maas_usage_event__state__rated
+#: model_terms:ir.ui.view,arch_db:sale.maas_usage_event_search_view
+msgid "Rated"
+msgstr ""
+
+#. module: sale
+#: model_terms:ir.ui.view,arch_db:sale.maas_usage_event_form_view
+msgid "Rated Amount"
+msgstr ""
+
+#. module: sale
+#. odoo-python
+#: code:addons/sale/models/maas_rate.py:0
+msgid "Rates and tier quantities cannot be negative."
+msgstr ""
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_maas_product_rate__quantity_divisor
+msgid "Raw Quantity per Rate Unit"
+msgstr "每个计价单位的原始用量"
+
+#. module: sale
+#. odoo-python
+#: code:addons/sale/models/maas_rate.py:0
+msgid "Raw quantity per rate unit must be greater than zero."
+msgstr ""
+
+#. module: sale
+#: model:ir.model.fields,help:sale.field_maas_usage_event__billing_period_quantity
+msgid ""
+"Required to match a billing-period tier. The importer should provide the "
+"period total."
+msgstr ""
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_product_product__sale_business_line
+#: model:ir.model.fields,field_description:sale.field_product_template__sale_business_line
+#: model:ir.model.fields,field_description:sale.field_sale_order__business_line
+#: model_terms:ir.ui.view,arch_db:sale.product_template_search_maas_inherit
+#: model_terms:ir.ui.view,arch_db:sale.sale_order_search_maas_inherit
+msgid "Sales Business Line"
+msgstr "销售业务线"
+
+#. module: sale
+#: model:ir.model.fields,help:sale.field_sale_order__maas_product_family_id
+msgid ""
+"Select Model Service (Tokens) or API Service to filter quotation products "
+"and apply the matching MaaS rate metrics."
+msgstr "选择模型服务（Tokens）或 API 服务后，系统将筛选对应产品并应用相应计费规则。"
+
+#. module: sale
+#. odoo-python
+#: code:addons/sale/models/sale_order.py:0
+msgid "Select TokensHub MaaS as the sales business line for MaaS products."
+msgstr ""
+
+#. module: sale
+#: model:ir.model.fields,help:sale.field_product_product__maas_product_family_id
+#: model:ir.model.fields,help:sale.field_product_template__maas_product_family_id
+msgid ""
+"Select the MaaS service family. It determines which products and usage-rate "
+"rules are available on quotations."
+msgstr "选择 MaaS 服务产品族，决定报价单上可选的产品和用量费率规则。"
+
+#. module: sale
+#. odoo-python
+#: code:addons/sale/models/product_template.py:0
+msgid "Select whether this MaaS product is a model or an API service."
+msgstr "请选择此 MaaS 产品属于模型服务还是 API 服务。"
+
+#. module: sale
+#. odoo-python
+#: code:addons/sale/models/maas_usage.py:0
+msgid "Some selected usage events already have an invoice."
+msgstr ""
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_maas_usage_event__external_reference
+msgid "Source Reference"
+msgstr ""
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_maas_usage_event__source_unit_name
+msgid "Source Unit"
+msgstr ""
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_maas_usage_event__state
+msgid "State"
+msgstr ""
+
+#. module: sale
+#: model:ir.model.constraint,message:sale.constraint_maas_product_family_code_unique
+msgid "The MaaS product family code must be unique."
+msgstr "MaaS 产品族编码必须唯一。"
+
+#. module: sale
+#. odoo-python
+#: code:addons/sale/models/maas_usage.py:0
+msgid "The MaaS product must be included in the linked sales order."
+msgstr ""
+
+#. module: sale
+#: model_terms:ir.ui.view,arch_db:sale.product_template_form_maas_inherit
+msgid ""
+"The Sales Price is the product-level catalog price. Detailed rates below "
+"define the usage prices available on quotations and for billing by metric, "
+"time window, or tier."
+msgstr "销售价格是产品级刊例价。下方的详细费率定义了可用于报价和用量结算的计价类型、时段及阶梯价格。"
+
+#. module: sale
+#. odoo-python
+#: code:addons/sale/models/maas_catalog_document.py:0
+#: code:addons/sale/models/maas_rate.py:0
+msgid "The effective end date cannot be before the start date."
+msgstr ""
+
+#. module: sale
+#. odoo-python
+#: code:addons/sale/models/sale_order_line.py:0
+msgid ""
+"The product must belong to the product family selected on the quotation."
+msgstr "产品必须属于报价单上选择的产品族。"
+
+#. module: sale
+#. odoo-python
+#: code:addons/sale/models/product_template.py:0
+msgid "The product type must match its MaaS product family."
+msgstr "产品类型必须与所选 MaaS 产品族一致。"
+
+#. module: sale
+#. odoo-python
+#: code:addons/sale/models/maas_usage.py:0
+msgid "The sales order and usage event must have the same customer."
+msgstr ""
+
+#. module: sale
+#. odoo-python
+#: code:addons/sale/models/maas_rate.py:0
+msgid "The tier maximum must be greater than its minimum."
+msgstr ""
+
+#. module: sale
+#. odoo-python
+#: code:addons/sale/models/maas_rate.py:0
+msgid "Tier %(minimum)s–%(maximum)s"
+msgstr "阶梯 %(minimum)s–%(maximum)s"
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_maas_product_rate__tier_basis
+msgid "Tier Basis"
+msgstr "阶梯依据"
+
+#. module: sale
+#: model:ir.model.fields,help:sale.field_maas_product_rate__min_quantity
+msgid ""
+"Tier limits use the rate unit shown above, after quantity normalization."
+msgstr ""
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_maas_product_rate__is_tiered
+msgid "Tiered Rate"
+msgstr "阶梯报价"
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_maas_product_rate__timezone
+msgid "Time Zone"
+msgstr "时区"
+
+#. module: sale
+#. odoo-python
+#: code:addons/sale/models/maas_rate.py:0
+msgid "Time rates must use hours between 0 and 24."
+msgstr ""
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_maas_product_rate__use_time_window
+msgid "Time-Based Rate"
+msgstr "时段费率"
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_maas_product_rate__time_to
+msgid "To"
+msgstr ""
+
+#. module: sale
+#: model:maas.product.family,description:sale.maas_product_family_tokens
+msgid ""
+"Token-metered model services, with separate input, output, cache, time-"
+"window, and tiered rates."
+msgstr "按 Token 计量的模型服务，支持输入、输出、缓存、时段和阶梯费率。"
+
+#. module: sale
+#: model:ir.model.fields.selection,name:sale.selection__product_template__sale_business_line__maas
+#: model:ir.model.fields.selection,name:sale.selection__sale_order__business_line__maas
+msgid "TokensHub MaaS"
+msgstr "TokensHub MaaS（模型服务与 API）"
+
+#. module: sale
+#. odoo-python
+#: code:addons/sale/models/maas_usage.py:0
+msgid "TokensHub MaaS usage"
+msgstr ""
+
+#. module: sale
+#: model_terms:ir.ui.view,arch_db:sale.maas_usage_event_list_view
+msgid "Total Amount"
+msgstr ""
+
+#. module: sale
+#: model_terms:ir.ui.view,arch_db:sale.maas_usage_event_list_view
+msgid "Total Quantity"
+msgstr ""
+
+#. module: sale
+#: model:ir.model.fields.selection,name:sale.selection__maas_usage_event__state__draft
+#: model_terms:ir.ui.view,arch_db:sale.maas_usage_event_search_view
+msgid "Unrated"
+msgstr ""
+
+#. module: sale
+#: model:ir.model.fields.selection,name:sale.selection__maas_product_rate__tier_basis__usage_line
+msgid "Usage Line Quantity"
+msgstr "单笔用量"
+
+#. module: sale
+#: model_terms:ir.ui.view,arch_db:sale.maas_usage_event_search_view
+msgid "Usage Month"
+msgstr ""
+
+#. module: sale
+#: model_terms:ir.ui.view,arch_db:sale.product_template_form_maas_inherit
+msgid "Usage Rate Details"
+msgstr "用量费率明细"
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_maas_usage_event__event_datetime
+msgid "Usage Time"
+msgstr "用量时间"
+
+#. module: sale
+#. odoo-python
+#: code:addons/sale/models/maas_usage.py:0
+msgid "Usage events can only be recorded against a TokensHub MaaS product."
+msgstr ""
+
+#. module: sale
+#. odoo-python
+#: code:addons/sale/models/maas_usage.py:0
+msgid "Usage quantity must be greater than zero."
+msgstr ""
+
+#. module: sale
+#: model:maas.product.family,description:sale.maas_product_family_api
+msgid "Usage-metered API services."
+msgstr "按用量计费的 API 服务。"
+
+#. module: sale
+#: model:ir.model.fields,help:sale.field_product_product__sale_business_line
+#: model:ir.model.fields,help:sale.field_product_template__sale_business_line
+msgid ""
+"Used by Sales to keep product selection within the quotation's business "
+"line."
+msgstr ""
+
+#. module: sale
+#. odoo-python
+#: code:addons/sale/models/maas_usage.py:0
+msgid "You need invoicing access to create invoices from MaaS usage."
+msgstr ""
+
+#. module: sale
+#. odoo-python
+#: code:addons/sale/models/maas_rate.py:0
+msgid "and above"
+msgstr "及以上"
+
+#. module: sale
+#: model_terms:ir.ui.view,arch_db:sale.maas_product_family_form_view
+msgid "e.g. Model Service (Tokens)"
+msgstr "例如：模型服务（Tokens）"
+
+#. module: sale
+#. odoo-python
+#: code:addons/sale/models/maas_usage.py:0
+msgid "id"
+msgstr ""
+
+#. module: sale
+msgid "Upstream Model ID"
+msgstr "上游模型 ID"
+
+#. module: sale
+msgid "Model ID"
+msgstr "模型 ID"
+
+#. module: sale
+msgid "MaaS Price Cards"
+msgstr "MaaS 价格卡"
+
+#. module: sale
+msgid "Price Card Version"
+msgstr "价格卡版本"
+
+#. module: sale
+msgid "Card Version"
+msgstr "价格卡版本"
+
+#. module: sale
+msgid "Standard List Prices"
+msgstr "标准刊例价"
+
+#. module: sale
+msgid "Conditional Pricing Rules"
+msgstr "条件定价规则"
+
+#. module: sale
+msgid "Vendor Standard Price Lists"
+msgstr "厂商标准价目表"
+
+#. module: sale
+msgid "Activate Version"
+msgstr "启用版本"
+
+#. module: sale
+msgid "Cache Pricing"
+msgstr "缓存计价方式"
+
+#. module: sale
+msgid "One Cache Rate"
+msgstr "统一缓存单价"
+
+#. module: sale
+msgid "Read and Write Rates"
+msgstr "读写分开计价"
+
+#. module: sale
+msgid "Usage Tier Method"
+msgstr "用量阶梯方式"
+
+#. module: sale
+msgid "One Rate for the Whole Tier"
+msgstr "阶梯内统一单价"
+
+#. module: sale
+msgid "Progressive by Tier"
+msgstr "按阶梯分段计价"
+
+#. module: sale
+msgid "Request Context Length"
+msgstr "请求上下文长度"
+
+#. module: sale
+msgid "Cache Tokens"
+msgstr "缓存 Tokens"
+
+#. module: sale
+msgid "Standard Price"
+msgstr "标准价格"
+
+#. module: sale
+msgid "Conditional Rule"
+msgstr "条件规则"
+
+#. module: sale
+msgid "Input List Price / 1M Tokens"
+msgstr "输入刊例价 / 百万 Tokens"
+
+#. module: sale
+msgid "Output List Price / 1M Tokens"
+msgstr "输出刊例价 / 百万 Tokens"
+
+#. module: sale
+msgid "Cache List Price / 1M Tokens"
+msgstr "缓存刊例价 / 百万 Tokens"
+
+#. module: sale
+msgid "Cache Read List Price / 1M Tokens"
+msgstr "缓存读取刊例价 / 百万 Tokens"
+
+#. module: sale
+msgid "Cache Write List Price / 1M Tokens"
+msgstr "缓存写入刊例价 / 百万 Tokens"
+
+#. module: sale
+msgid "Token charges are calculated from recorded input, output, and cache usage using this model's selected price card."
+msgstr "模型 Tokens 费用按实际输入、输出和缓存用量，依据所选价格卡计算。"
+
+#. module: sale
+msgid "This quotation lists the service catalog prices and discount. Charges are invoiced from recorded usage, so no fixed order total is shown."
+msgstr "本报价列示服务刊例价和折扣。费用按记录的实际用量结算，因此不显示固定订单总额。"
+
+#. module: sale
+#: code:addons/sale/models/maas_usage.py:0
+msgid "Select the sales order line for usage when the product appears more than once on the order."
+msgstr "同一产品在订单中出现多次时，请为用量选择对应的销售订单明细。"
+
+#. module: sale
+msgid "API List Price"
+msgstr "API 刊例价"
+
+#. module: sale
+msgid "API Rate Unit"
+msgstr "API 计费单位"
+
+#. module: sale
+msgid "Provider / Manufacturer"
+msgstr "服务提供商 / 厂商"
+
+#. module: sale
+msgid "Select a product family for every MaaS product."
+msgstr "每个 MaaS 产品都必须选择产品族。"
+
+#. module: sale
+msgid "Select a MaaS product family on the quotation."
+msgstr "请在报价单上选择 MaaS 产品族。"
+
+#. module: sale
+msgid "A MaaS product family requires the TokensHub MaaS sales business line."
+msgstr "选择 MaaS 产品族时，销售业务线必须为 TokensHub MaaS。"
+
+#. module: sale
+msgid "A product family cannot be changed after price cards are created. Create a separate product for a different service type."
+msgstr "创建价格卡后不能更改产品族。不同服务类型请创建单独的产品。"
+
+#. module: sale
+msgid "Select the active price card version for this MaaS product."
+msgstr "请选择此 MaaS 产品的有效价格卡版本。"
+
+#. module: sale
+msgid "A price card referenced by quotations or usage cannot be changed. Create a new version instead."
+msgstr "已被报价或用量引用的价格卡不能更改，请新建版本。"
+
+#. module: sale
+msgid "API charges are calculated from recorded service usage using the selected price card."
+msgstr "API 费用按记录的实际服务用量和所选价格卡计算。"
+
+#. module: sale
+msgid "MaaS Usage Analysis"
+msgstr "MaaS 用量分析"
+
+#. module: sale
+#. odoo-python
+#: code:addons/sale/models/maas_sale_order.py:0
+msgid "Select an active MaaS price card effective on the quotation date for each model or API product before confirming: %(products)s"
+msgstr "确认报价前，请为每个模型或 API 产品选择在报价日期有效的 MaaS 价格卡：%(products)s"

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="maas_product_family_tokens" model="maas.product.family">
+        <field name="name">Model Service (Tokens)</field>
+        <field name="code">tokens</field>
+        <field name="sequence">10</field>
+        <field name="product_type">model</field>
+        <field name="description">Token-metered model services, with separate input, output, cache, time-window, and tiered rates.</field>
+    </record>
+    <record id="maas_product_family_api" model="maas.product.family">
+        <field name="name">API Service</field>
+        <field name="code">api</field>
+        <field name="sequence">20</field>
+        <field name="product_type">api</field>
+        <field name="description">Usage-metered API services.</field>
+    </record>
+</odoo>

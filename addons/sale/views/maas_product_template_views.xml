@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_template_form_maas_inherit" model="ir.ui.view">
+        <field name="name">product.template.form.maas</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <field name="list_price" position="attributes">
+                <attribute name="invisible">sale_business_line == 'maas'</attribute>
+            </field>
+            <xpath expr="//page[@name='general_information']//group[@name='group_general']" position="inside">
+                <field name="sale_business_line" invisible="1"/>
+                <field name="maas_product_family_id" domain="[('active', '=', True)]" required="sale_business_line == 'maas'"/>
+                <field name="maas_product_type" invisible="sale_business_line != 'maas'" readonly="1"/>
+                <field name="maas_provider" invisible="sale_business_line != 'maas'"/>
+                <field name="maas_model_id" invisible="sale_business_line != 'maas' or maas_product_type != 'model'"/>
+                <field name="maas_model_version" invisible="sale_business_line != 'maas' or maas_product_type != 'model'"/>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page name="maas_price_cards" string="MaaS Price Cards" invisible="sale_business_line != 'maas'" groups="sales_team.group_sale_manager">
+                    <div class="alert alert-info" role="status">
+                        A price card stores the vendor and sales prices for one effective version. Model products are billed from actual input, output, and cache usage. Standard prices are the default; conditional rules override them when their date, time, or tier conditions match.
+                    </div>
+                    <field name="maas_price_card_ids" context="{'default_product_tmpl_id': id}">
+                        <list editable="bottom">
+                            <field name="name" string="Card Version"/>
+                            <field name="currency_id"/>
+                            <field name="date_start"/>
+                            <field name="date_end"/>
+                            <field name="state" widget="badge" decoration-success="state == 'active'" readonly="1"/>
+                            <field name="cache_mode" invisible="parent.maas_product_type != 'model'"/>
+                            <field name="tier_pricing_method"/>
+                        </list>
+                        <form string="MaaS Price Card">
+                            <header>
+                                <button name="action_activate" type="object" string="Activate Version" class="btn-primary" invisible="state == 'active'"/>
+                                <button name="action_archive" type="object" string="Archive" invisible="state != 'active'"/>
+                                <field name="state" widget="statusbar" statusbar_visible="draft,active,archived" readonly="1"/>
+                            </header>
+                            <sheet>
+                                <group>
+                                    <group>
+                                        <field name="product_tmpl_id" invisible="1"/>
+                                        <field name="name" string="Card Version"/>
+                                        <field name="currency_id"/>
+                                        <field name="date_start"/>
+                                        <field name="date_end"/>
+                                    </group>
+                                    <group>
+                                        <field name="cache_mode" invisible="product_type != 'model'"/>
+                                        <field name="tier_pricing_method"/>
+                                        <field name="note" placeholder="Internal notes"/>
+                                    </group>
+                                </group>
+                                <separator string="Standard List Prices"/>
+                                <div class="text-muted">Enter one default price for each billing metric. Token prices are normally per million tokens.</div>
+                                <field name="rate_ids" domain="[('pricing_role', '=', 'standard')]" context="{'default_product_tmpl_id': product_tmpl_id, 'default_pricing_role': 'standard'}">
+                                    <list editable="bottom">
+                                        <field name="sequence" widget="handle"/>
+                                        <field name="metric"/>
+                                        <field name="unit_name"/>
+                                        <field name="quantity_divisor" optional="hide"/>
+                                        <field name="currency_id" column_invisible="True"/>
+                                        <field name="rate" string="List Price" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                        <field name="active" optional="hide"/>
+                                    </list>
+                                </field>
+                                <separator string="Conditional Pricing Rules"/>
+                                <div class="text-muted">Rules override the standard rate when their conditions match. Tier limits use the configured rate unit.</div>
+                                <field name="rate_ids" domain="[('pricing_role', '=', 'rule')]" context="{'default_product_tmpl_id': product_tmpl_id, 'default_pricing_role': 'rule'}">
+                                    <list editable="bottom">
+                                        <field name="sequence" widget="handle"/>
+                                        <field name="metric"/>
+                                        <field name="unit_name"/>
+                                        <field name="quantity_divisor" optional="hide"/>
+                                        <field name="currency_id" column_invisible="True"/>
+                                        <field name="rate" string="Rule Price" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                        <field name="use_time_window"/>
+                                        <field name="time_from" widget="float_time" invisible="not use_time_window"/>
+                                        <field name="time_to" widget="float_time" invisible="not use_time_window"/>
+                                        <field name="timezone" invisible="not use_time_window" optional="hide"/>
+                                        <field name="is_tiered"/>
+                                        <field name="tier_basis" invisible="not is_tiered"/>
+                                        <field name="min_quantity" invisible="not is_tiered"/>
+                                        <field name="max_quantity" invisible="not is_tiered"/>
+                                        <field name="date_start" optional="hide"/>
+                                        <field name="date_end" optional="hide"/>
+                                        <field name="active" optional="hide"/>
+                                    </list>
+                                    <form string="Conditional Pricing Rule">
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                    <field name="product_tmpl_id" invisible="1"/>
+                                                    <field name="price_card_id" invisible="1"/>
+                                                    <field name="pricing_role" invisible="1"/>
+                                                    <field name="metric"/>
+                                                    <field name="rate" string="Rule Price" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                                    <field name="currency_id"/>
+                                                    <field name="unit_name"/>
+                                                    <field name="quantity_divisor"/>
+                                                </group>
+                                                <group>
+                                                    <field name="use_time_window"/>
+                                                    <field name="time_from" widget="float_time" invisible="not use_time_window"/>
+                                                    <field name="time_to" widget="float_time" invisible="not use_time_window"/>
+                                                    <field name="timezone" invisible="not use_time_window"/>
+                                                    <field name="is_tiered"/>
+                                                    <field name="tier_basis" invisible="not is_tiered"/>
+                                                    <field name="min_quantity" invisible="not is_tiered"/>
+                                                    <field name="max_quantity" invisible="not is_tiered"/>
+                                                </group>
+                                            </group>
+                                            <group>
+                                                <field name="date_start"/>
+                                                <field name="date_end"/>
+                                                <field name="sequence"/>
+                                                <field name="active"/>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                                <separator string="Vendor Standard Price Lists"/>
+                                <div class="text-muted">Attach the vendor's official catalog. The quotation email uses the attachment assigned to its selected price card.</div>
+                                <field name="catalog_document_ids" context="{'default_product_tmpl_id': product_tmpl_id, 'default_price_card_id': id}">
+                                    <list editable="bottom">
+                                        <field name="sequence" widget="handle"/>
+                                        <field name="name"/>
+                                        <field name="vendor_name"/>
+                                        <field name="filename"/>
+                                        <field name="date_start" optional="hide"/>
+                                        <field name="date_end" optional="hide"/>
+                                        <field name="active" optional="hide"/>
+                                    </list>
+                                    <form string="Vendor Standard Price List">
+                                        <sheet>
+                                            <group>
+                                                <field name="product_tmpl_id" invisible="1"/>
+                                                <field name="price_card_id" invisible="1"/>
+                                                <field name="name"/>
+                                                <field name="vendor_name"/>
+                                                <field name="file_content" filename="filename" widget="binary"/>
+                                                <field name="filename" invisible="1"/>
+                                                <field name="date_start"/>
+                                                <field name="date_end"/>
+                                                <field name="active"/>
+                                                <field name="sequence"/>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </sheet>
+                        </form>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_template_list_maas_inherit" model="ir.ui.view">
+        <field name="name">product.template.list.maas</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_tree_view"/>
+        <field name="arch" type="xml">
+            <field name="list_price" position="after">
+                <field name="sale_business_line" optional="hide"/>
+                <field name="maas_product_type" optional="hide"/>
+                <field name="maas_product_family_id" optional="hide"/>
+                <field name="maas_model_id" optional="hide"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="product_template_search_maas_inherit" model="ir.ui.view">
+        <field name="name">product.template.search.maas</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_search_view"/>
+        <field name="arch" type="xml">
+            <field name="categ_id" position="after">
+                <field name="sale_business_line"/>
+                <field name="maas_product_type"/>
+                <field name="maas_product_family_id"/>
+                <field name="maas_model_id"/>
+            </field>
+            <xpath expr="//group" position="inside">
+                <filter name="group_by_sale_business_line" string="Sales Business Line" context="{'group_by': 'sale_business_line'}"/>
+                <filter name="group_by_maas_product_type" string="MaaS Product Type" context="{'group_by': 'maas_product_type'}"/>
+                <filter name="group_by_maas_product_family" string="Product Family" context="{'group_by': 'maas_product_family_id'}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

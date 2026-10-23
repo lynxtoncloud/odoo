@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="maas_usage_event_list_view" model="ir.ui.view">
+        <field name="name">maas.usage.event.list</field>
+        <field name="model">maas.usage.event</field>
+        <field name="arch" type="xml">
+            <list string="MaaS Usage" create="1" edit="1" delete="0" multi_edit="1">
+                <header>
+                    <button name="action_rate" type="object" string="Rate Usage" class="btn-secondary"/>
+                    <button name="action_create_invoices" type="object" string="Create Draft Invoices" class="btn-primary" groups="account.group_account_invoice"/>
+                </header>
+                <field name="company_id" column_invisible="True"/>
+                <field name="currency_id" column_invisible="True"/>
+                <field name="name" string="Reference"/>
+                <field name="event_datetime"/>
+                <field name="partner_id"/>
+                <field name="product_id"/>
+                <field name="order_id" optional="hide"/>
+                <field name="sale_line_id" optional="hide"/>
+                <field name="metric"/>
+                <field name="quantity" sum="Total Quantity"/>
+                <field name="context_length" optional="hide"/>
+                <field name="billed_quantity" optional="hide"/>
+                <field name="source_unit_name" optional="hide"/>
+                <field name="billed_unit_name" optional="hide"/>
+                <field name="matched_rate_id" optional="hide"/>
+                <field name="price_card_id" optional="hide"/>
+                <field name="discount_percent" string="Discount (%)" optional="hide"/>
+                <field name="unit_price" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                <field name="amount" widget="monetary" options="{'currency_field': 'currency_id'}" sum="Total Amount"/>
+                <field name="state" widget="badge" decoration-success="state == 'rated'" decoration-info="state == 'invoiced'" readonly="1"/>
+                <field name="invoice_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="maas_usage_event_form_view" model="ir.ui.view">
+        <field name="name">maas.usage.event.form</field>
+        <field name="model">maas.usage.event</field>
+        <field name="arch" type="xml">
+            <form string="MaaS Usage">
+                <header>
+                    <button name="action_rate" type="object" string="Rate Usage" class="btn-primary" invisible="state == 'invoiced'"/>
+                    <button name="action_create_invoices" type="object" string="Create Draft Invoice" groups="account.group_account_invoice" invisible="state != 'rated' or invoice_id"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,rated,invoiced" readonly="1"/>
+                </header>
+                <sheet>
+                    <div class="oe_title"><h1><field name="name"/></h1></div>
+                    <group>
+                        <group>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="partner_id" readonly="state != 'draft'"/>
+                            <field name="product_id" readonly="state != 'draft'"/>
+                            <field name="order_id" readonly="state != 'draft'"/>
+                            <field name="sale_line_id" readonly="state != 'draft'" invisible="not order_id"/>
+                            <field name="external_reference" readonly="state != 'draft'"/>
+                        </group>
+                        <group>
+                            <field name="event_datetime" readonly="state != 'draft'"/>
+                            <field name="metric" readonly="state != 'draft'"/>
+                            <field name="quantity" readonly="state != 'draft'"/>
+                            <field name="context_length" readonly="state != 'draft'" invisible="product_id.maas_product_type != 'model'"/>
+                            <field name="billing_period_quantity" readonly="state != 'draft'"/>
+                            <field name="source_unit_name" readonly="state != 'draft'"/>
+                        </group>
+                    </group>
+                    <group string="Rated Amount">
+                        <field name="matched_rate_id" readonly="1"/>
+                        <field name="price_card_id" readonly="1"/>
+                        <field name="discount_percent" readonly="1"/>
+                        <field name="currency_id" invisible="1"/>
+                        <field name="unit_price" widget="monetary" options="{'currency_field': 'currency_id'}" readonly="1"/>
+                        <field name="billed_quantity" readonly="1"/>
+                        <field name="billed_unit_name" readonly="1"/>
+                        <field name="amount" widget="monetary" options="{'currency_field': 'currency_id'}" readonly="1"/>
+                        <field name="invoice_id" readonly="1"/>
+                        <field name="pricing_error" readonly="1" invisible="not pricing_error"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="maas_usage_event_search_view" model="ir.ui.view">
+        <field name="name">maas.usage.event.search</field>
+        <field name="model">maas.usage.event</field>
+        <field name="arch" type="xml">
+            <search string="MaaS Usage">
+                <field name="name"/>
+                <field name="external_reference"/>
+                <field name="partner_id"/>
+                <field name="product_id"/>
+                <field name="order_id"/>
+                <field name="sale_line_id"/>
+                <field name="metric"/>
+                <filter name="unrated" string="Unrated" domain="[('state', '=', 'draft')]"/>
+                <filter name="rated" string="Rated" domain="[('state', '=', 'rated')]"/>
+                <filter name="invoiced" string="Invoiced" domain="[('state', '=', 'invoiced')]"/>
+                <group>
+                    <filter name="group_partner" string="Customer" context="{'group_by': 'partner_id'}"/>
+                    <filter name="group_product" string="Product" context="{'group_by': 'product_id'}"/>
+                    <filter name="group_metric" string="Metric" context="{'group_by': 'metric'}"/>
+                    <filter name="group_event_month" string="Usage Month" context="{'group_by': 'event_datetime:month'}"/>
+                    <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="maas_usage_event_graph_view" model="ir.ui.view">
+        <field name="name">maas.usage.event.graph</field>
+        <field name="model">maas.usage.event</field>
+        <field name="arch" type="xml">
+            <graph string="MaaS Usage Analysis" type="bar" sample="1">
+                <field name="event_datetime" interval="month"/>
+                <field name="product_id"/>
+                <field name="amount" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="maas_usage_event_pivot_view" model="ir.ui.view">
+        <field name="name">maas.usage.event.pivot</field>
+        <field name="model">maas.usage.event</field>
+        <field name="arch" type="xml">
+            <pivot string="MaaS Usage Analysis" sample="1">
+                <field name="partner_id" type="row"/>
+                <field name="product_id" type="row"/>
+                <field name="metric" type="row"/>
+                <field name="event_datetime" interval="month" type="col"/>
+                <field name="quantity" type="measure"/>
+                <field name="billed_quantity" type="measure"/>
+                <field name="amount" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="maas_usage_event_action" model="ir.actions.act_window">
+        <field name="name">MaaS Usage</field>
+        <field name="res_model">maas.usage.event</field>
+        <field name="view_mode">list,form,graph,pivot</field>
+        <field name="search_view_id" ref="maas_usage_event_search_view"/>
+    </record>
+</odoo>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_saleorder_document_maas_price_card" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//t[@t-set='display_discount']" position="attributes">
+            <attribute name="t-value">doc.business_line == 'maas' or any(line.discount &gt; 0 for line in lines_to_report)</attribute>
+        </xpath>
+        <xpath expr="//th[@name='th_quantity']" position="attributes">
+            <attribute name="t-if">not doc.maas_usage_only</attribute>
+        </xpath>
+        <xpath expr="//th[@name='th_priceunit']" position="attributes">
+            <attribute name="t-if">not doc.maas_usage_only</attribute>
+        </xpath>
+        <xpath expr="//th[@name='th_taxes']" position="attributes">
+            <attribute name="t-if">display_taxes and not doc.maas_usage_only</attribute>
+        </xpath>
+        <xpath expr="//th[@name='th_subtotal']" position="attributes">
+            <attribute name="t-if">not doc.maas_usage_only</attribute>
+        </xpath>
+        <xpath expr="//td[@name='td_product_quantity']" position="attributes">
+            <attribute name="t-if">not doc.maas_usage_only</attribute>
+        </xpath>
+        <xpath expr="//td[@name='td_product_priceunit']" position="attributes">
+            <attribute name="t-if">not doc.maas_usage_only</attribute>
+        </xpath>
+        <xpath expr="//td[@name='td_product_taxes']" position="attributes">
+            <attribute name="t-if">display_taxes and not doc.maas_usage_only</attribute>
+        </xpath>
+        <xpath expr="//td[@name='td_product_subtotal']" position="attributes">
+            <attribute name="t-if">not doc.maas_usage_only</attribute>
+        </xpath>
+        <xpath expr="//td[@name='td_product_name']//div[hasclass('o_product_name_cell')]" position="inside">
+            <div t-if="line.maas_price_card_id and line.product_id.maas_product_type == 'model'" class="text-muted small mt-1">
+                <div><span>Model ID: </span><span t-field="line.maas_model_id"/></div>
+                <div><span>Price card: </span><span t-field="line.maas_price_card_id.name"/></div>
+                <div class="d-flex flex-wrap gap-3 mt-1">
+                    <span><span>Input / 1M: </span><span t-field="line.maas_input_rate" t-options="{'widget': 'monetary', 'display_currency': line.currency_id}"/></span>
+                    <span><span>Output / 1M: </span><span t-field="line.maas_output_rate" t-options="{'widget': 'monetary', 'display_currency': line.currency_id}"/></span>
+                    <span t-if="line.maas_price_card_id.cache_mode == 'single'"><span>Cache / 1M: </span><span t-field="line.maas_cache_rate" t-options="{'widget': 'monetary', 'display_currency': line.currency_id}"/></span>
+                    <span t-if="line.maas_price_card_id.cache_mode == 'read_write'"><span>Cache Read / 1M: </span><span t-field="line.maas_cache_read_rate" t-options="{'widget': 'monetary', 'display_currency': line.currency_id}"/></span>
+                    <span t-if="line.maas_price_card_id.cache_mode == 'read_write'"><span>Cache Write / 1M: </span><span t-field="line.maas_cache_write_rate" t-options="{'widget': 'monetary', 'display_currency': line.currency_id}"/></span>
+                </div>
+            </div>
+            <div t-if="line.maas_price_card_id and line.product_id.maas_product_type == 'api'" class="text-muted small mt-1">
+                <span><span>API List Price: </span><span t-field="line.maas_api_rate" t-options="{'widget': 'monetary', 'display_currency': line.currency_id}"/></span>
+                <span t-if="line.maas_api_unit_name"><span> / </span><span t-field="line.maas_api_unit_name"/></span>
+            </div>
+            <div t-if="doc.maas_usage_only and line.product_id.maas_product_type == 'model'" class="text-muted small mt-1">
+                Token charges are calculated from recorded input, output, and cache usage using this model's selected price card.
+            </div>
+            <div t-if="doc.maas_usage_only and line.product_id.maas_product_type == 'api'" class="text-muted small mt-1">
+                API charges are calculated from recorded service usage using the selected price card.
+            </div>
+        </xpath>
+        <xpath expr="//div[@name='so_total_summary']" position="attributes">
+            <attribute name="t-if">not doc.maas_usage_only</attribute>
+        </xpath>
+    </template>
+</odoo>
