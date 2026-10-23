@@ -21,15 +21,23 @@
                 <field name="product_template_id" invisible="1"/>
                 <field name="currency_id" invisible="1"/>
                 <field name="maas_cache_mode" invisible="1"/>
-                <field name="maas_price_card_id" string="Price Card Version" domain="[('product_tmpl_id', '=', product_template_id), ('state', '=', 'active'), ('active', '=', True)]" invisible="parent.business_line != 'maas'"/>
-                <field name="maas_model_id" string="Upstream Model ID" readonly="1" invisible="parent.maas_product_type != 'model'"/>
-                <field name="maas_input_rate" string="Input List Price / 1M Tokens" readonly="1" invisible="parent.maas_product_type != 'model' or not maas_price_card_id"/>
-                <field name="maas_output_rate" string="Output List Price / 1M Tokens" readonly="1" invisible="parent.maas_product_type != 'model' or not maas_price_card_id"/>
-                <field name="maas_cache_rate" string="Cache List Price / 1M Tokens" readonly="1" invisible="parent.maas_product_type != 'model' or maas_cache_mode != 'single'"/>
-                <field name="maas_cache_read_rate" string="Cache Read List Price / 1M Tokens" readonly="1" invisible="parent.maas_product_type != 'model' or maas_cache_mode != 'read_write'"/>
-                <field name="maas_cache_write_rate" string="Cache Write List Price / 1M Tokens" readonly="1" invisible="parent.maas_product_type != 'model' or maas_cache_mode != 'read_write'"/>
-                <field name="maas_api_rate" string="API List Price" readonly="1" invisible="parent.maas_product_type != 'api' or not maas_price_card_id"/>
-                <field name="maas_api_unit_name" string="API Rate Unit" readonly="1" invisible="parent.maas_product_type != 'api' or not maas_price_card_id"/>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/form/group[1]" position="after">
+                <group string="Catalog Pricing" invisible="parent.business_line != 'maas'">
+                    <group>
+                        <field name="maas_price_card_id" string="Price Card Version" domain="[('product_tmpl_id', '=', product_template_id), ('state', '=', 'active'), ('active', '=', True)]" invisible="parent.business_line != 'maas'"/>
+                        <field name="maas_model_id" string="Upstream Model ID" readonly="1" invisible="parent.maas_product_type != 'model'"/>
+                    </group>
+                    <group>
+                        <field name="maas_input_rate" string="Input List Price / 1M Tokens" readonly="1" invisible="parent.maas_product_type != 'model' or not maas_price_card_id"/>
+                        <field name="maas_output_rate" string="Output List Price / 1M Tokens" readonly="1" invisible="parent.maas_product_type != 'model' or not maas_price_card_id"/>
+                        <field name="maas_cache_rate" string="Cache List Price / 1M Tokens" readonly="1" invisible="parent.maas_product_type != 'model' or maas_cache_mode != 'single'"/>
+                        <field name="maas_cache_read_rate" string="Cache Read List Price / 1M Tokens" readonly="1" invisible="parent.maas_product_type != 'model' or maas_cache_mode != 'read_write'"/>
+                        <field name="maas_cache_write_rate" string="Cache Write List Price / 1M Tokens" readonly="1" invisible="parent.maas_product_type != 'model' or maas_cache_mode != 'read_write'"/>
+                        <field name="maas_api_rate" string="API List Price" readonly="1" invisible="parent.maas_product_type != 'api' or not maas_price_card_id"/>
+                        <field name="maas_api_unit_name" string="API Rate Unit" readonly="1" invisible="parent.maas_product_type != 'api' or not maas_price_card_id"/>
+                    </group>
+                </group>
             </xpath>
             <xpath expr="//field[@name='order_line']//form//label[@for='product_uom_qty']" position="attributes">
                 <attribute name="invisible">parent.maas_usage_only</attribute>
@@ -53,16 +61,16 @@
                 <attribute name="invisible">parent.business_line != 'maas'</attribute>
             </xpath>
             <xpath expr="//field[@name='order_line']//column[@name='product_and_description']/field[@name='product_id']" position="after">
-                <field name="maas_model_id" string="Model ID" readonly="1" invisible="parent.maas_product_type != 'model'" optional="show"/>
+                <field name="maas_model_id" string="Model ID" readonly="1" invisible="parent.maas_product_type != 'model'" optional="hide"/>
             </xpath>
             <xpath expr="//field[@name='order_line']//column[@name='product_and_description']" position="after">
                 <field name="maas_price_card_id" string="Card Version" domain="[('product_tmpl_id', '=', product_template_id), ('state', '=', 'active'), ('active', '=', True)]" column_invisible="parent.business_line != 'maas'" optional="show"/>
                 <field name="maas_cache_mode" column_invisible="True"/>
                 <field name="maas_input_rate" string="Input / 1M" invisible="not maas_price_card_id" column_invisible="parent.maas_product_type != 'model'" optional="show"/>
                 <field name="maas_output_rate" string="Output / 1M" invisible="not maas_price_card_id" column_invisible="parent.maas_product_type != 'model'" optional="show"/>
-                <field name="maas_cache_rate" string="Cache / 1M" invisible="not maas_price_card_id or maas_cache_mode != 'single'" column_invisible="parent.maas_product_type != 'model'" optional="show"/>
-                <field name="maas_cache_read_rate" string="Cache Read / 1M" invisible="not maas_price_card_id or maas_cache_mode != 'read_write'" column_invisible="parent.maas_product_type != 'model'" optional="show"/>
-                <field name="maas_cache_write_rate" string="Cache Write / 1M" invisible="not maas_price_card_id or maas_cache_mode != 'read_write'" column_invisible="parent.maas_product_type != 'model'" optional="show"/>
+                <field name="maas_cache_rate" string="Cache / 1M" invisible="not maas_price_card_id or maas_cache_mode != 'single'" column_invisible="parent.maas_product_type != 'model'" optional="hide"/>
+                <field name="maas_cache_read_rate" string="Cache Read / 1M" invisible="not maas_price_card_id or maas_cache_mode != 'read_write'" column_invisible="parent.maas_product_type != 'model'" optional="hide"/>
+                <field name="maas_cache_write_rate" string="Cache Write / 1M" invisible="not maas_price_card_id or maas_cache_mode != 'read_write'" column_invisible="parent.maas_product_type != 'model'" optional="hide"/>
                 <field name="maas_api_rate" string="API List Price" invisible="not maas_price_card_id" column_invisible="parent.maas_product_type != 'api'" optional="show"/>
                 <field name="maas_api_unit_name" string="Rate Unit" invisible="not maas_price_card_id" column_invisible="parent.maas_product_type != 'api'" optional="show"/>
             </xpath>

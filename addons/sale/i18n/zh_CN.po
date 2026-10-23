@@ -1945,7 +1945,7 @@ msgstr "签署后，您即代表以下各方确认接受："
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_form_maas_inherit
 msgid "Cache / 1M"
-msgstr ""
+msgstr "缓存 / 百万 Token"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order_line__maas_cache_rate
@@ -1970,7 +1970,7 @@ msgstr ""
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_form_maas_inherit
 msgid "Cache Read / 1M"
-msgstr ""
+msgstr "缓存读取 / 百万 Token"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order_line__maas_cache_read_rate
@@ -1997,7 +1997,7 @@ msgstr "缓存 Tokens"
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_form_maas_inherit
 msgid "Cache Write / 1M"
-msgstr ""
+msgstr "缓存写入 / 百万 Token"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order_line__maas_cache_write_rate
@@ -2093,7 +2093,12 @@ msgstr "捕获交易"
 #: model_terms:ir.ui.view,arch_db:sale.product_template_form_maas_inherit
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_form_maas_inherit
 msgid "Card Version"
-msgstr "价格卡版本"
+msgstr "刊例价版本"
+
+#. module: sale
+#: model_terms:ir.ui.view,arch_db:sale.sale_order_form_maas_inherit
+msgid "Catalog Pricing"
+msgstr "刊例价"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.view_order_form
@@ -3486,7 +3491,7 @@ msgstr "国际贸易术语位置"
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_form_maas_inherit
 msgid "Input / 1M"
-msgstr ""
+msgstr "输入 / 百万 Token"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order_line__maas_input_rate
@@ -4709,7 +4714,7 @@ msgstr "其他信息"
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_form_maas_inherit
 msgid "Output / 1M"
-msgstr ""
+msgstr "输出 / 百万 Token"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order_line__maas_output_rate
