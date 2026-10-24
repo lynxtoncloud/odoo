@@ -4312,3 +4312,99 @@ msgstr "{{ object.company_id.name }} 采购询价（参考 {{ object.name or 'n/
 
 #~ msgid "Translated Product Name"
 #~ msgstr "已翻译的产品名称"
+
+#. module: purchase
+msgid "MaaS Supplier Channels"
+msgstr "MaaS 供应商子通道"
+
+#. module: purchase
+msgid "MaaS Supplier Pricing"
+msgstr "MaaS 供应商计价"
+
+#. module: purchase
+msgid "MaaS Supplier Offers"
+msgstr "MaaS 供应商报价"
+
+#. module: purchase
+msgid "MaaS Supplier Channel"
+msgstr "MaaS 供应商子通道"
+
+#. module: purchase
+msgid "MaaS Product"
+msgstr "MaaS 产品"
+
+#. module: purchase
+msgid "Sub-channel"
+msgstr "子通道"
+
+#. module: purchase
+msgid "Channel ID"
+msgstr "渠道 ID"
+
+#. module: purchase
+msgid "Upstream Channel"
+msgstr "上游渠道"
+
+#. module: purchase
+msgid "Upstream Model / API Name"
+msgstr "上游模型 / API 名称"
+
+#. module: purchase
+msgid "Billing Mode"
+msgstr "计费方式"
+
+#. module: purchase
+msgid "Tokens"
+msgstr "Tokens"
+
+#. module: purchase
+msgid "Per Call"
+msgstr "按次"
+
+#. module: purchase
+msgid "Input Pricing"
+msgstr "输入定价"
+
+#. module: purchase
+msgid "Output Pricing"
+msgstr "输出定价"
+
+#. module: purchase
+msgid "Cache Pricing"
+msgstr "缓存定价"
+
+#. module: purchase
+msgid "Cache Rate Summary"
+msgstr "缓存费率摘要"
+
+#. module: purchase
+msgid "Per-call Price"
+msgstr "按次单价"
+
+#. module: purchase
+msgid "Supplier Discount (%)"
+msgstr "供应商折扣（%）"
+
+#. module: purchase
+msgid "Purchase Terms"
+msgstr "采购条款"
+
+#. module: purchase
+msgid "Purchase Pricing"
+msgstr "采购定价"
+
+#. module: purchase
+msgid "Standard Rates"
+msgstr "标准费率"
+
+#. module: purchase
+msgid "Time and Tier Rules"
+msgstr "时段与阶梯规则"
+
+#. module: purchase
+msgid "Supplier Route"
+msgstr "供应商路由"
+
+#. module: purchase
+msgid "Supplier Model Offers"
+msgstr "供应商模型报价"

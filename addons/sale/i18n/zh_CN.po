@@ -1274,11 +1274,11 @@ msgstr ""
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.product_template_form_maas_inherit
 msgid ""
-"A price card stores the vendor and sales prices for one effective version. "
-"Model products are billed from actual input, output, and cache usage. "
-"Standard prices are the default; conditional rules override them when their "
-"date, time, or tier conditions match."
-msgstr ""
+"A price card stores customer-facing list prices and conditions for one "
+"effective version. Maintain supplier offers and procurement rates under "
+"Purchase. Standard prices apply by default; conditional rules override them "
+"when their date, time, or tier conditions match."
+msgstr "刊例价版本保存面向客户的销售价格和适用条件。模型产品按实际输入、输出和缓存用量计费。供应商报价和采购费率在采购模块维护。标准价格默认适用；符合日期、时段或阶梯条件时，使用对应的条件价格规则。"
 
 #. module: sale
 #. odoo-python

@@ -12,14 +12,13 @@
                 <field name="sale_business_line" invisible="1"/>
                 <field name="maas_product_family_id" domain="[('active', '=', True)]" required="sale_business_line == 'maas'"/>
                 <field name="maas_product_type" invisible="sale_business_line != 'maas'" readonly="1"/>
-                <field name="maas_provider" invisible="sale_business_line != 'maas'"/>
                 <field name="maas_model_id" invisible="sale_business_line != 'maas' or maas_product_type != 'model'"/>
                 <field name="maas_model_version" invisible="sale_business_line != 'maas' or maas_product_type != 'model'"/>
             </xpath>
             <xpath expr="//notebook" position="inside">
                 <page name="maas_price_cards" string="MaaS Price Cards" invisible="sale_business_line != 'maas'" groups="sales_team.group_sale_manager">
                     <div class="alert alert-info" role="status">
-                        A price card stores the vendor and sales prices for one effective version. Model products are billed from actual input, output, and cache usage. Standard prices are the default; conditional rules override them when their date, time, or tier conditions match.
+                        A price card stores customer-facing list prices and conditions for one effective version. Maintain supplier offers and procurement rates under Purchase. Standard prices apply by default; conditional rules override them when their date, time, or tier conditions match.
                     </div>
                     <field name="maas_price_card_ids" context="{'default_product_tmpl_id': id}">
                         <list editable="bottom">

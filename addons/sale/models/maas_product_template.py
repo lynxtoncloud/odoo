@@ -35,7 +35,6 @@ class ProductTemplate(models.Model):
         tracking=True,
         help="Derived from the selected product family: model families use Token metrics and API families use API usage.",
     )
-    maas_provider = fields.Char(string="Provider / Manufacturer", tracking=True)
     maas_model_id = fields.Char(
         string="Upstream Model ID",
         tracking=True,
@@ -62,7 +61,6 @@ class ProductTemplate(models.Model):
             else:
                 product.sale_business_line = False
                 product.maas_product_type = False
-                product.maas_provider = False
                 product.maas_model_id = False
                 product.maas_model_version = False
             if product.maas_product_type != "model":
@@ -109,7 +107,6 @@ class ProductTemplate(models.Model):
         if "maas_product_family_id" in values and not values["maas_product_family_id"]:
             values.setdefault("sale_business_line", False)
             values.setdefault("maas_product_type", False)
-            values.setdefault("maas_provider", False)
             values.setdefault("maas_model_id", False)
             values.setdefault("maas_model_version", False)
         if values.get("maas_product_family_id"):
@@ -127,7 +124,6 @@ class ProductTemplate(models.Model):
         "maas_product_family_id",
         "maas_product_type",
         "maas_price_card_ids",
-        "maas_provider",
         "maas_model_id",
         "maas_model_version",
     )
@@ -149,7 +145,6 @@ class ProductTemplate(models.Model):
             if product.sale_business_line != "maas" and (
                 product.maas_product_type
                 or product.maas_price_card_ids
-                or product.maas_provider
                 or product.maas_model_id
                 or product.maas_model_version
             ):

@@ -20,6 +20,29 @@
             </field>
     </record>
 
+    <record id="view_partner_maas_channels_form" model="ir.ui.view">
+        <field name="name">res.partner.maas.channels.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="MaaS Sub-channels" name="maas_subchannels"
+                    invisible="supplier_rank == 0" groups="purchase.group_purchase_user">
+                    <field name="supplier_rank" invisible="1"/>
+                    <field name="maas_channel_ids" context="{'default_partner_id': id}"
+                        readonly="1">
+                        <list editable="bottom">
+                            <field name="name"/>
+                            <field name="channel_id"/>
+                            <field name="active" widget="boolean_toggle"/>
+                            <field name="note" optional="hide"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
     <record id="act_res_partner_2_purchase_order" model="ir.actions.act_window">
             <field name="name">RFQs and Purchases</field>
             <field name="res_model">purchase.order</field>
