@@ -26,7 +26,10 @@ class PurchaseMaasChannel(models.Model):
         "res.partner", string="Supplier", required=True, ondelete="restrict", index=True,
         domain="[('supplier_rank', '>', 0)]",
     )
-    channel_id = fields.Char(string="Channel ID", required=True, index=True)
+    channel_id = fields.Char(
+        string="Internal Channel ID", required=True, index=True,
+        help="Internal routing identifier for this supplier sub-channel.",
+    )
     note = fields.Text(string="Internal Notes")
     active = fields.Boolean(default=True)
     offer_ids = fields.One2many("purchase.maas.offer", "channel_id", string="Model Offers")
@@ -67,7 +70,6 @@ class PurchaseMaasOffer(models.Model):
         "purchase.maas.channel", string="Sub-channel", required=True, ondelete="restrict", index=True,
     )
     partner_id = fields.Many2one(related="channel_id.partner_id", store=True, string="Supplier", index=True)
-    channel_code = fields.Char(related="channel_id.channel_id", store=True, string="Channel ID")
     company_id = fields.Many2one(
         "res.company", string="Company", required=True, default=lambda self: self.env.company, index=True,
     )
@@ -75,7 +77,7 @@ class PurchaseMaasOffer(models.Model):
         "product.template", string="MaaS Product", required=True, ondelete="restrict", index=True,
         domain="[('type', '=', 'service'), ('sale_ok', '=', True)]", check_company=True,
     )
-    provider_model_name = fields.Char(string="Upstream Model / API Name", required=True, index=True)
+    provider_model_name = fields.Char(string="Model / API Name", required=True, index=True)
     upstream_channel = fields.Char(string="Upstream Channel")
     billing_mode = fields.Selection(
         [("tokens", "Tokens"), ("per_call", "Per Call")], string="Billing Mode", required=True,
@@ -94,10 +96,10 @@ class PurchaseMaasOffer(models.Model):
         default=lambda self: self.env.company.currency_id,
     )
     supplier_discount = fields.Float(
-        string="Supplier Discount (%)", default=0.0, digits=(16, 2),
+        string="Purchase Business Discount (%)", default=0.0, digits=(16, 2),
         help=(
-            "Discount applied by the supplier to its published rates. "
-            "Customer quotation discounts are configured in Sales."
+            "Commercial discount agreed with the supplier for these purchase rates. "
+            "This is procurement data; customer quotation discounts are configured in Sales."
         ),
     )
     date_start = fields.Date(string="Effective From")

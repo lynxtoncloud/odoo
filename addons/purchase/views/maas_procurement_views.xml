@@ -7,7 +7,6 @@
             <list string="MaaS Supplier Channels">
                 <field name="partner_id"/>
                 <field name="name"/>
-                <field name="channel_id"/>
                 <field name="active" widget="boolean_toggle"/>
             </list>
         </field>
@@ -24,11 +23,13 @@
                         <group>
                             <field name="partner_id" domain="[('supplier_rank', '&gt;', 0)]"/>
                             <field name="name"/>
-                            <field name="channel_id"/>
                             <field name="active" widget="boolean_toggle"/>
                         </group>
                         <group>
-                            <field name="note" placeholder="Internal notes"/>
+                            <group string="Internal Configuration">
+                                <field name="channel_id"/>
+                                <field name="note" placeholder="Internal notes"/>
+                            </group>
                         </group>
                     </group>
                     <separator string="Supplier Model Offers"/>
@@ -59,7 +60,6 @@
             <list string="MaaS Supplier Pricing">
                 <field name="partner_id"/>
                 <field name="channel_id"/>
-                <field name="channel_code" optional="hide"/>
                 <field name="upstream_channel" optional="hide"/>
                 <field name="product_tmpl_id"/>
                 <field name="provider_model_name"/>
@@ -95,7 +95,6 @@
                         <group string="Supplier Route">
                             <field name="partner_id" readonly="1"/>
                             <field name="channel_id" domain="[('active', '=', True)]"/>
-                            <field name="channel_code" readonly="1"/>
                             <field name="upstream_channel"/>
                             <field name="provider_model_name"/>
                         </group>
@@ -112,7 +111,7 @@
                     </group>
                     <notebook>
                         <page string="Purchase Pricing">
-                            <div class="text-muted">Enter supplier published rates. Token prices are usually per million tokens. The supplier discount is tracked separately from the customer quotation discount.</div>
+                            <div class="text-muted">Enter the supplier's purchase rates. Token prices are usually per million tokens. The purchase business discount is procurement data and is separate from customer quotation discounts.</div>
                             <group string="Standard Rates">
                                 <field name="rate_ids" domain="[('pricing_role', '=', 'standard')]" context="{'default_pricing_role': 'standard'}">
                                     <list editable="bottom">
@@ -174,7 +173,6 @@
                         <list>
                             <field name="partner_id"/>
                             <field name="channel_id"/>
-                            <field name="channel_code" optional="hide"/>
                             <field name="upstream_channel" optional="hide"/>
                             <field name="provider_model_name"/>
                             <field name="billing_mode"/>

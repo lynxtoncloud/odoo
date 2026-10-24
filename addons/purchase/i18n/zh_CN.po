@@ -4338,16 +4338,16 @@ msgid "Sub-channel"
 msgstr "子通道"
 
 #. module: purchase
-msgid "Channel ID"
-msgstr "渠道 ID"
+msgid "Internal Channel ID"
+msgstr "内部 Channel ID"
 
 #. module: purchase
 msgid "Upstream Channel"
 msgstr "上游渠道"
 
 #. module: purchase
-msgid "Upstream Model / API Name"
-msgstr "上游模型 / API 名称"
+msgid "Model / API Name"
+msgstr "模型 / API 名称"
 
 #. module: purchase
 msgid "Billing Mode"
@@ -4382,8 +4382,24 @@ msgid "Per-call Price"
 msgstr "按次单价"
 
 #. module: purchase
-msgid "Supplier Discount (%)"
-msgstr "供应商折扣（%）"
+msgid "Purchase Business Discount (%)"
+msgstr "采购商务折扣（%）"
+
+#. module: purchase
+msgid "Internal Configuration"
+msgstr "内部配置"
+
+#. module: purchase
+msgid "Internal routing identifier for this supplier sub-channel."
+msgstr "此供应商子通道使用的内部路由标识。"
+
+#. module: purchase
+msgid "Commercial discount agreed with the supplier for these purchase rates. This is procurement data; customer quotation discounts are configured in Sales."
+msgstr "与供应商针对这些采购费率约定的商务折扣，属于采购数据；客户报价折扣在销售模块配置。"
+
+#. module: purchase
+msgid "Enter the supplier's purchase rates. Token prices are usually per million tokens. The purchase business discount is procurement data and is separate from customer quotation discounts."
+msgstr "填写供应商采购费率。Token 价格通常按百万 Token 计价。采购商务折扣属于采购数据，与客户报价折扣分开维护。"
 
 #. module: purchase
 msgid "Purchase Terms"
